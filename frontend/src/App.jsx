@@ -37,7 +37,7 @@ function App() {
       eventSourceRef.current.close();
     }
 
-    const eventSource = new EventSource(`http://localhost:5005/api/research?company=${encodeURIComponent(comp.trim())}`);
+    const eventSource = new EventSource(`https://investment-research-agent-kmxl.onrender.com/api/research?company=${encodeURIComponent(comp.trim())}`);
     eventSourceRef.current = eventSource;
 
     eventSource.addEventListener('log', (event) => {
