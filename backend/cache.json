@@ -1,0 +1,73 @@
+{
+  "zomato": {
+    "timestamp": 1782597194287,
+    "result": {
+      "companyName": "Zomato Limited",
+      "ticker": "ZOMATO",
+      "sector": "Technology",
+      "industry": "Internet & Direct Marketing Retail",
+      "sharePrice": 74.65,
+      "priceChange": -0.45,
+      "marketCap": "13.5B",
+      "verdict": "INVEST",
+      "reasoningPoints": [
+        "Strong Q4 growth with revenue rising about 180% YoY",
+        "Diversified cash flow and unit economics through Food Delivery, Hyperpure B2B supplies, and Blinkit quick-commerce fees and commissions"
+      ],
+      "riskPoints": [
+        "Cybersecurity risks and data breaches",
+        "Spam reviews and high server latency for global users"
+      ],
+      "valuation": {
+        "trailingPE": "60.00",
+        "forwardPE": "40.00",
+        "pegRatio": "1.50",
+        "debtToEquity": "20%",
+        "profitMargin": "10.50%",
+        "roe": "12.50%"
+      },
+      "companyDescription": "Zomato is an Indian multinational technology company that operates primarily in the online food delivery and restaurant discovery space.",
+      "sentiment": {
+        "score": 60,
+        "text": "Slightly bullish overall market sentiment due to strong Q4 growth and diversified revenue streams"
+      }
+    }
+  },
+  "apple": {
+    "timestamp": 1782597217682,
+    "result": {
+      "companyName": "Apple Inc.",
+      "ticker": "AAPL",
+      "sector": "Technology",
+      "industry": "Consumer Electronics",
+      "sharePrice": 173.03,
+      "priceChange": -0.67,
+      "marketCap": "2.8T",
+      "verdict": "INVEST",
+      "summary": "Apple is a leader in the technology industry with a strong brand and loyal customer base, but faces risks from supply chain disruptions and increasing competition.",
+      "reasoningPoints": [
+        "Strong brand and loyal customer base",
+        "Diversified product portfolio",
+        "Innovative products and services"
+      ],
+      "riskPoints": [
+        "Supply chain disruptions",
+        "Increasing competition",
+        "Dependence on few products"
+      ],
+      "valuation": {
+        "trailingPE": "32.00",
+        "forwardPE": "29.00",
+        "pegRatio": "1.25",
+        "debtToEquity": "90%",
+        "profitMargin": "21.50%",
+        "roe": "18.42%"
+      },
+      "companyDescription": "Apple Inc. is a multinational technology company that designs, manufactures, and markets consumer electronics, computer software, and online services.",
+      "sentiment": {
+        "score": 55,
+        "text": "Slightly bullish overall market sentiment, with some concerns about supply chain disruptions and increasing competition."
+      }
+    }
+  }
+}
