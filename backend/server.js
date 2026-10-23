@@ -10,7 +10,7 @@ import { ChatGroq } from "@langchain/groq";
 import { TavilySearchResults } from "@langchain/community/tools/tavily_search";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
-import yahooFinance from 'yahoo-finance2';
+import YahooFinance from 'yahoo-finance2'; const yahooFinance = new YahooFinance();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -71,13 +71,13 @@ const yahooFinanceTool = tool(
 );
 
 const tools = [
-  new TavilySearchResults({ maxResults: 3 }),
+  new TavilySearchResults({ maxResults: 2 }),
   yahooFinanceTool
 ];
 
 const model = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
-  modelName: 'openai/gpt-oss-120b',
+  modelName: 'openai/gpt-oss-20b',
   temperature: 0,
 });
 
@@ -125,7 +125,7 @@ const agent = createToolCallingAgent({
   prompt,
 });
 
-const agentExecutor = new AgentExecutor({
+const agentExecutor = new AgentExecutor({ maxIterations: 10,
   agent,
   tools,
 });
@@ -177,7 +177,7 @@ app.get('/api/research', async (req, res) => {
     sendEvent('log', { message: `Starting comprehensive research for ${company}...` });
 
     const eventStream = await agentExecutor.streamEvents(
-      { input: `Research the company: ${company}. Do 3-4 searches and use Yahoo finance. Output only JSON verdict.` },
+      { input: `Research the company: ${company}. Do at most 2 Tavily searches and call yahoo_finance exactly once. Output only JSON verdict.` },
       { version: "v2" }
     );
 

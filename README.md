@@ -15,7 +15,7 @@ This is a full-stack AI application that autonomously researches a company and p
 ## How it works
 - **Frontend**: A React application built with Vite that provides a clean, modern UI for entering a company name. It uses the native `EventSource` API to consume Server-Sent Events (SSE) and display a real-time terminal log of the agent's thoughts.
 - **Backend**: A Node.js/Express server exposing a `GET /api/research` streaming endpoint. It features a lightweight JSON file cache (`cache.json`) to serve recent queries instantly.
-- **AI Agent**: Utilizes LangChain.js `AgentExecutor` with Groq's `openai/gpt-oss-120b` model. The agent uses `TavilySearchResults` (for news/competitors) and a custom `yahoo_finance` tool (for real-time stock prices and P/E ratios). The final output is constrained to a specific JSON schema.
+- **AI Agent**: Utilizes LangChain.js `AgentExecutor` with Groq's `openai/gpt-oss-20b` model. The agent uses `TavilySearchResults` (for news/competitors) and a custom `yahoo_finance` tool (for real-time stock prices and P/E ratios). The final output is constrained to a specific JSON schema.
 
 ## Key decisions & trade-offs
 - **Model Choice**: Groq's Llama-3.3 70B model provides extremely fast inference times, which is critical when running an agentic loop with multiple tool calls.
