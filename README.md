@@ -1,4 +1,4 @@
-# AI Investment Research Agent
+﻿# AI Investment Research Agent
 
 ## Overview
 This is a full-stack AI application that autonomously researches a company and provides an investment verdict (INVEST ✅ or PASS ❌). It uses a LangChain.js agent to search the web for recent news, financial performance, competitor info, and risk factors, before aggregating everything into a structured JSON verdict.
@@ -18,7 +18,7 @@ This is a full-stack AI application that autonomously researches a company and p
 - **AI Agent**: Utilizes LangChain.js `AgentExecutor` with Groq's `openai/gpt-oss-20b` model. The agent uses `TavilySearchResults` (for news/competitors) and a custom `yahoo_finance` tool (for real-time stock prices and P/E ratios). The final output is constrained to a specific JSON schema.
 
 ## Key decisions & trade-offs
-- **Model Choice**: Groq's Llama-3.3 70B model provides extremely fast inference times, which is critical when running an agentic loop with multiple tool calls.
+- **Model Choice**: Groq-hosted OpenAI gpt-oss-20b gives fast inference, which matters in an agentic loop with multiple tool calls. The project originally used Llama-3.3 70B; I switched models when Groq stopped serving it for my account, and the tool-calling flow worked unchanged.
 - **Streaming (SSE)**: Instead of blocking the HTTP request for 20 seconds, I implemented Server-Sent Events using LangChain's `.streamEvents()`. This vastly improves UX by showing the user exactly what the agent is researching in real-time.
 - **Caching**: Implemented a local `cache.json` to store research for 24 hours. This saves LLM tokens and API calls for repeated searches.
 - **Tooling**: Tavily Search is optimized for LLM RAG tasks, while the custom `yahoo-finance2` tool ensures the agent has hard, real-time financial metrics to base its verdict on.
@@ -32,3 +32,4 @@ This is a full-stack AI application that autonomously researches a company and p
 1. Move from a local `cache.json` to a robust database like PostgreSQL or Redis for persistent storage across deployments.
 2. Upgrade the LangChain `AgentExecutor` to LangGraph for more complex, cyclical routing and human-in-the-loop approvals.
 3. Add a time-series charting library (like Recharts) to the frontend to visualize the Yahoo Finance historical data.
+
