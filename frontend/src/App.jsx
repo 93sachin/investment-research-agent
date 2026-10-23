@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Search, Terminal, Building2, CheckCircle2, AlertCircle, ArrowUpRight, ArrowDownRight, DollarSign, MessageSquareText, Activity } from 'lucide-react';
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
       eventSourceRef.current.close();
     }
 
-    const eventSource = new EventSource(`https://investment-research-agent-kmxl.onrender.com/api/research?company=${encodeURIComponent(comp.trim())}`);
+    const eventSource = new EventSource(`${import.meta.env.VITE_API_URL || "http://localhost:5005"}/api/research?company=${encodeURIComponent(comp.trim())}`);
     eventSourceRef.current = eventSource;
 
     eventSource.addEventListener('log', (event) => {
@@ -268,3 +268,4 @@ function App() {
 }
 
 export default App;
+

@@ -77,7 +77,7 @@ const tools = [
 
 const model = new ChatGroq({
   apiKey: process.env.GROQ_API_KEY,
-  modelName: 'llama-3.3-70b-versatile',
+  modelName: 'openai/gpt-oss-120b',
   temperature: 0,
 });
 
